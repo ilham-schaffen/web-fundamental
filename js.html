@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Fundamental</title>
+    </head>
+    <body>
+        <img src="jakarta.jpg">
+
+        <h3>Hitung luas lingkaran</h3>
+        <form name="fform">
+            <input type="number" name="jari" id="jari" onsubmit="lingkaran(document.getElementById('jari').value);">
+            <button type="submit">Hitung</button>
+        </form>
+        <div id="belajarJS">
+        </div>
+
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>Mobil</th>
+            </thead>
+            <tbody id="tabelmobil">
+
+            </tbody>
+        </table>
+
+        <h3 id="subtitle"></h3>
+
+        <script type="text/javascript">
+            var a = 2;
+            let b = 3;
+            var c = 7;
+
+            const segitiga = function(sisi1, sisi2){ return 0.5*sisi1*sisi2};
+            const phi = 3.14;
+
+            let segitigasatu = segitiga(5,7);
+
+            function lingkaran(jarijari){
+                return phi * jarijari * jarijari;
+            }
+
+            let motor = {honda: "CBR 250 RR", yamaha: {mt25: {tipe: "Naked Sport", kubikasi: 250, warna: "Black Doff"}}};
+            let mobil = ["toyota", "honda", "bmw", "mercy"];
+
+            const pi = 3.14;
+            lingkaran = pi * a;
+
+
+            mobil.forEach(function(manufacturer, no){
+                document.getElementById("tabelmobil").insertAdjacentHTML("afterbegin", "<tr><td>" + no + "</td><td>" + manufacturer + "</td></tr>");
+            });
+
+            document.getElementById("subtitle").innerHTML = motor.honda;
+
+
+            function milih(pilihan){
+                document.getElementById('belajarJS').innerHTML = "";
+                for(i = 0; i < pilihan; i++){
+                    document.getElementById('belajarJS').append(i + 1 + " - ");
+                }
+            }
+
+
+            
+            function nama(nama){
+                document.getElementById("belajarJS").innerHTML = nama;
+                document.getElementById("subtitle").innerHTML = "Selamat datang " + nama;
+            }
+        </script>
+    </body>
+</html>
