@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Async</title>
+    </head>
+    <body>
+        <h1 id="judul"></h1>
+        <script type="text/javascript">
+            async function judul(){
+                let janjiNama = new Promise(function(resolve, reject){
+                    let namaUser = namaAnda("Ilham");
+                    setInterval(function(){ resolve(namaUser); }, 1500);
+                });
+
+                let janjiAlamat = new Promise(function(resolve, reject){
+                    let alamat = tempatTinggal("Jakarta");
+                    
+                    setInterval(function(){ resolve(alamat); }, 500);
+                });
+
+                document.getElementById("judul").innerHTML = "Halo selamat datang ";
+                document.getElementById("judul").append(await janjiNama);
+                document.getElementById("judul").append(" di " + await janjiAlamat);
+            }
+
+            function tempatTinggal(alamat){
+                return alamat;
+            }
+
+            function namaAnda(nama){
+                return nama;
+            }
+
+
+            judul();
+        </script>
+    </body>
+</html>
