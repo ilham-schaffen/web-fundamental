@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Belajar JQuery</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        
+        <h1 id="judul"></h1>
+
+        <h3 class="subjudul"></h3>
+
+        <form name="komentar" id="formKomentar">
+            <input type="text" name="nama" id="komentarNama"><br>
+            <textarea name="komentar" cols="30" rows="8" id="komentarText"></textarea><br>
+
+            <button type="submit">Kirim</button>
+        </form>
+
+        <br><br>
+        <button id="komentarToggle">Toggle Komentar</button>
+
+        <div id="tambahKomentar"></div>
+        
+        <script type="text/javascript">
+            $(document).ready(function(){
+                // kita memasukkan seluruh function jQuery disini
+
+                $("button#komentarToggle").click(function(){
+                    $("#tambahKomentar").slideToggle();
+                });
+
+                $("#komentarNama").focus(function(){
+                    $(this).css({
+                        "background-color": "red",
+                        "color": "white",
+                        "font-weight": "700"
+                    });
+                });
+
+                $("#komentarNama").blur(function(){
+                    $(this).css("background-color", "white");
+                });
+
+                $("#judul").text("Selamat datang");
+                $(".subjudul").text("di website kami");
+
+                $("#formKomentar").submit(function(){
+                    let nama = $("#komentarNama").val();
+                    let komentar = $("#komentarText").val();
+
+                    $("#tambahKomentar").append("<br>Nama: " + nama + "<br>Komentar: " + komentar);
+                    return false;
+                });
+            });
+        </script>
+    </body>
+</html>
